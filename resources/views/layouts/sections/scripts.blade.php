@@ -12,8 +12,10 @@
 <!-- END: Page Vendor JS-->
 <!-- BEGIN: Theme JS-->
 <script src="{{ asset(mix('assets/js/main.js')) }}"></script>
-
 <!-- END: Theme JS-->
+<!-- BEGIN: AjaxFormSubmitter-->
+<script src="{{ asset('js/ajax-form-submitter.js') }}"></script>
+<!-- END: AjaxFormSubmitter-->
 <!-- Pricing Modal JS-->
 @stack('pricing-script')
 <!-- END: Pricing Modal JS-->
