@@ -195,7 +195,7 @@
         year = dateObj.getFullYear(),
         dateToUse = date
           ? date + ', ' + year
-          : dateObj.getDate() + ' ' + dateObj.toLocaleString('en', { month: 'long' }) + ', ' + year,
+          : dateObj.getDate() + ' ' + dateObj.toLocaleString('id', { month: 'long' }) + ', ' + year,
         label = element.getAttribute('data-badge-text'),
         avatars = element.getAttribute('data-assigned');
 

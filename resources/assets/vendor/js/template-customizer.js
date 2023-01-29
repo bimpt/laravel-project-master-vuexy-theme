@@ -90,7 +90,7 @@ class TemplateCustomizer {
 
     this.settings.styles = styles || STYLES
     this.settings.defaultStyle = defaultStyle || DEFAULT_STYLE
-    this.settings.lang = lang || 'en'
+    this.settings.lang = lang || 'id'
     this.pathResolver = pathResolver || (p => p)
 
     if (this.settings.styles.length < 2) {
@@ -959,6 +959,28 @@ TemplateCustomizer.THEMES = [
 
 // Theme setting language
 TemplateCustomizer.LANGUAGES = {
+  id: {
+    panel_header: 'TEMPLATE CUSTOMIZER',
+    panel_sub_header: 'Customize and preview in real time',
+    theming_header: 'THEMING',
+    theme_header: 'THEME',
+    theme_label: 'Themes',
+    style_label: 'Style (Mode)',
+    style_switch_light: 'Light',
+    style_switch_dark: 'Dark',
+    layout_header: 'LAYOUT',
+    layout_label: 'Layout (Menu)',
+    layout_static: 'Static',
+    layout_offcanvas: 'Offcanvas',
+    layout_fixed: 'Fixed',
+    layout_fixed_offcanvas: 'Fixed offcanvas',
+    layout_flipped_label: 'Menu flipped',
+    layout_dd_open_label: 'Dropdown on hover',
+    layout_navbar_label: 'Fixed navbar',
+    layout_footer_label: 'Fixed footer',
+    misc_header: 'MISC',
+    rtl_label: 'RTL direction'
+  },
   en: {
     panel_header: 'TEMPLATE CUSTOMIZER',
     panel_sub_header: 'Customize and preview in real time',

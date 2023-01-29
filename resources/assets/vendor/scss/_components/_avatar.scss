@@ -54,6 +54,21 @@
   &.avatar-busy:after {
     background-color: $danger;
   }
+
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    span {
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+    }
+  }
 }
 
 // Pull up avatar style

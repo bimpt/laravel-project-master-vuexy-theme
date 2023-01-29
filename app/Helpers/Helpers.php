@@ -3,7 +3,6 @@
 namespace App\Helpers;
 
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Str;
 
 class Helpers
 {
@@ -28,7 +27,7 @@ class Helpers
       'navbarFixed' => true,
       'footerFixed' => false,
       'menuFlipped' => false,
-      // 'menuOffcanvas' => false,
+      'menuOffcanvas' => false,
       'customizerControls' => [
         'rtl',
         'style',
@@ -38,7 +37,7 @@ class Helpers
         'layoutFooterFixed',
         'themes',
       ],
-      //   'defaultLanguage'=>'en',
+      'defaultLanguage' => 'id',
     ];
 
     // if any key missing of array from custom.php file it will be merge and set a default value from dataDefault array and store in data variable
@@ -61,7 +60,7 @@ class Helpers
       'menuFlipped' => [true, false],
       // 'menuOffcanvas' => [true, false],
       'customizerControls' => [],
-      // 'defaultLanguage'=>array('en'=>'en','fr'=>'fr','de'=>'de','pt'=>'pt'),
+      'defaultLanguage' => array('id' => 'id','en' => 'en', 'fr'=>'fr','de'=>'de','pt'=>'pt'),
     ];
 
     //if myLayout value empty or not match with default options in custom.php config file then set a default value
@@ -179,6 +178,57 @@ class Helpers
         foreach ($pageConfigs as $config => $val) {
           Config::set('custom.' . $demo . '.' . $config, $val);
         }
+      }
+    }
+  }
+
+  public static function initial_name($val)
+  {
+    $init_name = [];
+    $split_name = explode(" ", $val);
+    $length = count($split_name) > 1 ? 2 : 1;
+    for ($i = 0; $i < $length; $i++) {
+      $init_name[$i] = strtoupper(substr($split_name[$i], 0, 1));
+    }
+    return implode("", $init_name);
+  }
+
+  public static function convert_to_roman($num)
+  {
+    $res = '';
+    $n = intval($num);
+    $romanNumber_Array = array(
+      'M'  => 1000,
+      'CM' => 900,
+      'D'  => 500,
+      'CD' => 400,
+      'C'  => 100,
+      'XC' => 90,
+      'L'  => 50,
+      'XL' => 40,
+      'X'  => 10,
+      'IX' => 9,
+      'V'  => 5,
+      'IV' => 4,
+      'I'  => 1
+    );
+
+    foreach ($romanNumber_Array as $roman => $number) {
+      $matches = intval($n / $number);
+      $res .= str_repeat($roman, $matches);
+      $n = $n % $number;
+    }
+    return $res;
+  }
+
+  public static function mkdir_in_public_path($path)
+  {
+    $dir = "";
+    $exp = explode("/", $path);
+    for ($i = 0; $i < count($exp); $i++) {
+      $dir .= $exp[$i] . "/";
+      if (!file_exists(public_path($dir))) {
+        mkdir(public_path($dir), 755, true);
       }
     }
   }
